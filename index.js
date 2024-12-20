@@ -8,9 +8,9 @@ app.use(express.static("views"));
 app.listen(port,()=>{
     console.log("Listening on port 3000")
 })
-let age;
+
 app.get("/",(req,res)=>{
-    res.render("index.ejs",{Age:age})
+    res.render("index.ejs",{Age:null})
 })
 
 app.post("/submit",(req,res)=>{
@@ -21,6 +21,7 @@ app.post("/submit",(req,res)=>{
     const currentDate=new Date().getDate();
     let l=dob.split("-")
     let by=parseInt(l[2],10)
+    let age;
     age=currentYear-by
     if (currentmonth<parseInt(l[1],10)){
         age--;
@@ -31,8 +32,7 @@ app.post("/submit",(req,res)=>{
         }
     }
     console.log(age)
-    res.redirect("/")
-    
+    res.render("index.ejs", { Age: age });    
 
 
 })
