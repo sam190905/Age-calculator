@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Wanna Know your Age ?</h1>
+    <h2>Enter you DOB here:</h2>
+    <p>(In the form of dd-mm-yyyy)</p>
+    <form action="/submit" method="post">
+   <label for ="Age">Your DOB</label>
+   <input type="text" name="Age" required >
+   <button type="submit">Get Age</button>
+    </form>
+    <% if (locals.Age){ %>
+    <h1>You are <%=Age%> years old!</h1>
+    <% } %>
+
+</body>
+</html>
